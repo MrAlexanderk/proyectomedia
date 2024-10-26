@@ -1,40 +1,38 @@
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none;
+    box-sizing: border-box;
 }
 
-body {
-    background-color: bisque;
+html, body {
+    background-color: white;
+    height: 100%;
 }
-
-
 
 .grid-container {
     display: grid;
     grid-template-areas:
         'sidebar'
-        'header'
+        'filters'
         'main'
         'footer';
     grid-template-columns: 100%;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
 }
 
 @media (min-width: 576px) {
     .grid-container {
-        display: grid;
         grid-template-areas:
             'sidebar header'
             'sidebar main'
             '_ footer';
         grid-template-columns: 15% 85%;
-        grid-template-rows: auto 1fr auto;
     }
 }
+
 .sidebar {
     grid-area: sidebar;
-    padding: 0px 0px 0px 0px;
     display: flex;
     flex-direction: column;
     background-color: #122562;
@@ -42,34 +40,59 @@ body {
     color: lightgray;
     position: sticky;
     top: 0;
-    height: 100vh;
-}
-.sidebar > h3{
-    margin-top: 20px;
-}
-
-.header {
-    background-color: lightgray;
-    text-align: center;
-    color: black;
-    grid-area: header;
-    height: 85px;
-    line-height: 50px;
-    position: sticky;
-    top: 0;
     z-index: 1;
 }
 
-.main {
-    display: grid;
-    grid-template-columns: auto;
-    grid-area: main;
-    gap: 5px;
-    padding: 10px;
-    overflow-y: auto; 
+.sidebar > h3 {
+    margin-top: 20px;
 }
 
-.precio{
+.sidebar-title {
+    padding: 15px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-list {
+    display: none;
+}
+
+.filters {
+    grid-area: filters;
+    background-color: lightgray;
+    text-align: center;
+    color: black;
+    height: 78px;
+    line-height: 50px;
+    position: sticky;
+    top: 52px;
+    z-index: 1;
+}
+
+.filters > p {
+    padding-top: 10px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.precio {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -77,10 +100,10 @@ body {
     background-color: white;
     border-radius: 5px;
     padding: 0 10px;
-    height:35px;
+    height: 35px;
 }
 
-.footer {
+.pages {
     grid-area: footer;
     display: flex;
     justify-content: center;
@@ -108,9 +131,8 @@ body {
     padding: 10px;
     font-size: medium;
     color: lightgray;
-    background-color: green;
+    background-color: #122562;
     width: 90%;
-    height: auto;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -118,25 +140,20 @@ body {
 }
 
 .custom-button:hover {
-    background-color: darkgreen;
+    background-color: #0d1841;
 }
 
 a {
     color: lightgray;
-    padding: 10px 0px;
+    padding: 10px 0;
 }
 
 a:hover {
     color: orange;
 }
 
-.precio {
-    font-style: italic;
-    font-size: x-large;
-}
-.header > p{
+.header > p {
     margin: 0;
-    padding: 0;
     height: 40px;
 }
 
@@ -148,14 +165,11 @@ a:hover {
     background-color: aliceblue;
     padding: 1%;
     border-radius: 10px;
-}
-
-.product-card > p {
-    padding: 5%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .product-card > h3 {
-    margin-top: 3%;
+    margin: 15px 0 5px;
 }
 
 .imagen-tarjeta {
@@ -170,6 +184,16 @@ a:hover {
     .main {
         grid-template-columns: auto auto auto;
         gap: 10px;
-        padding: 10px;
     }
+}
+
+/* Footer styles */
+.footer {
+    padding: 15px 0;
+    background-color: #122562;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
