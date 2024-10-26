@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body{
+    background-color: bisque;
+}
+
+.grid-container{
+    width: 100hh;
+    display: grid;
+    grid-template-areas:
+        'header header'
+        'sidebar main'
+        'footer footer';
+    grid-template-columns: 15% 85%;
+}
+
+.header{
+    background-color: blueviolet;
+    text-align: center;
+    color:aliceblue;
+    font-size: 24pt;;
+    grid-area: header;
+    height: 50px;
+    line-height: 50px;
+}
+
+.main{
+    grid-area: main;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    padding: 10px;
+}
+
+.footer{
+    background-color:darkslategrey;
+    color:white;
+    grid-area: footer;
+    padding: 10px;
+    text-align: center;
+}
+.product-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.product-card > p{
+    padding: 5%;
+}
+
+.product-card > h3{
+    margin-top: 3%;
+}
+
+.imagen-tarjeta{
+    padding-top: 7px;
+    width: 95%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.sidebar{
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+}
+
+.custom-button{
+    padding: 10px;
+    font-size: medium;
+    color: aliceblue;
+    background-color: green;
+    width: 90%;
+    height: auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5%;
+}
+.custom-button:hover {
+    background-color: darkgreen;
+}
+.precio{
+    font-style: italic;
+    font-size:x-large;
+}
