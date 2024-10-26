@@ -82,7 +82,6 @@ html, body {
     grid-area: main;
     display: flex;
     flex-direction: column;
-    gap: 5px;
     padding: 10px;
     overflow-y: auto;
 }
@@ -90,6 +89,7 @@ html, body {
 .gallery {
     display: grid;
     grid-template-columns: auto;
+    gap: 15px;
 }
 
 .precio {
