@@ -2,11 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 html, body {
     background-color: white;
     height: 100%;
+    width: 100%;
 }
 
 .grid-container {
@@ -19,16 +21,6 @@ html, body {
     grid-template-columns: 100%;
     grid-template-rows: auto auto 1fr auto;
     min-height: 100vh;
-}
-
-@media (min-width: 576px) {
-    .grid-container {
-        grid-template-areas:
-            'sidebar header'
-            'sidebar main'
-            '_ footer';
-        grid-template-columns: 15% 85%;
-    }
 }
 
 .sidebar {
@@ -66,7 +58,7 @@ html, body {
     height: 78px;
     line-height: 50px;
     position: sticky;
-    top: 52px;
+    top: 68px;
     z-index: 1;
 }
 
@@ -141,15 +133,8 @@ html, body {
 
 .custom-button:hover {
     background-color: #0d1841;
-}
-
-a {
-    color: lightgray;
-    padding: 10px 0;
-}
-
-a:hover {
     color: orange;
+    scale: 1.01;
 }
 
 .header > p {
@@ -180,14 +165,6 @@ a:hover {
     border-radius: 10px;
 }
 
-@media (min-width: 576px) {
-    .main {
-        grid-template-columns: auto auto auto;
-        gap: 10px;
-    }
-}
-
-/* Footer styles */
 .footer {
     padding: 15px 0;
     background-color: #122562;
@@ -196,4 +173,74 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+a {
+    color: lightgray;
+    padding: 10px 0;
+}
+
+a:hover {
+    color: orange;
+}
+
+@media (min-width: 576px){
+    .grid-container {
+        grid-template-areas:
+            'sidebar sidebar'
+            'filters main'
+            'footer footer';
+        grid-template-columns: 25% 75%;
+    }
+    .sidebar-list {
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0px 50px;
+    }
+    .hide-in-desk{
+        display: none;
+    }
+    .sidebar-title{
+        padding-right: 40px;
+    }
+    .filters{
+        position: sticky;
+        top: 107px;
+    }
+    .footer{
+        grid-area: footer;
+        width: 100%;
+
+    }
+    .gallery {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .grid-container {
+        grid-template-areas:
+            'sidebar filters'
+            'sidebar main'
+            'footer main';
+        grid-template-columns: 15% 85%;
+    }
+    .sidebar-list {
+        flex-direction: column;
+    }
+    .filters{
+        top:0px;
+        height: 66px;
+    }
+    .footer{
+        justify-content: end;
+    }
+    .footer > p{
+        text-align: center;
+    }
+    .gallery {
+        grid-template-columns: auto auto auto;
+    }
+
 }
