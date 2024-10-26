@@ -1,49 +1,115 @@
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
 }
 
-body{
+body {
     background-color: bisque;
 }
 
-.grid-container{
-    width: 100hh;
+.grid-container {
     display: grid;
     grid-template-areas:
-        'header header'
+        'sidebar header'
         'sidebar main'
-        'footer footer';
+        'sidebar footer';
     grid-template-columns: 15% 85%;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
 
-.header{
-    background-color: blueviolet;
+/* Mantener sidebar fijo a la izquierda */
+.sidebar {
+    grid-area: sidebar;
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    background-color: #122562;
     text-align: center;
-    color:aliceblue;
-    font-size: 24pt;;
-    grid-area: header;
-    height: 50px;
-    line-height: 50px;
+    color: lightgray;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
-.main{
+/* Mantener header fijo en la parte superior */
+.header {
+    background-color: lightgray;
+    text-align: center;
+    color: black;
+    font-size: 24pt;
+    grid-area: header;
+    height: 120px;
+    line-height: 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.main {
     grid-area: main;
     display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 10px;
+    grid-template-columns: auto;
+    gap: 5px;
     padding: 10px;
+    overflow-y: auto; 
 }
 
-.footer{
-    background-color:darkslategrey;
-    color:white;
+.footer {
     grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: black;
     padding: 10px;
     text-align: center;
 }
-.product-card{
+
+/* Ajustes adicionales */
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.redes-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.custom-button {
+    padding: 10px;
+    font-size: medium;
+    color: lightgray;
+    background-color: green;
+    width: 90%;
+    height: auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5%;
+}
+
+.custom-button:hover {
+    background-color: darkgreen;
+}
+
+a {
+    color: lightgray;
+    padding: 10px 0px;
+}
+
+a:hover {
+    color: orange;
+}
+
+.precio {
+    font-style: italic;
+    font-size: x-large;
+}
+
+.product-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,15 +119,15 @@ body{
     border-radius: 10px;
 }
 
-.product-card > p{
+.product-card > p {
     padding: 5%;
 }
 
-.product-card > h3{
+.product-card > h3 {
     margin-top: 3%;
 }
 
-.imagen-tarjeta{
+.imagen-tarjeta {
     padding-top: 7px;
     width: 95%;
     height: 200px;
@@ -69,29 +135,14 @@ body{
     border-radius: 10px;
 }
 
-.sidebar{
-    padding: 10%;
-    display: flex;
-    flex-direction: column;
-    background-color: antiquewhite;
+h1 {
+    font-size: 34pt;
 }
 
-.custom-button{
-    padding: 10px;
-    font-size: medium;
-    color: aliceblue;
-    background-color: green;
-    width: 90%;
-    height: auto;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 5%;
-}
-.custom-button:hover {
-    background-color: darkgreen;
-}
-.precio{
-    font-style: italic;
-    font-size:x-large;
+@media (min-width: 576px) {
+    .main {
+        grid-template-columns: auto auto auto;
+        gap: 10px;
+        padding: 10px;
+    }
 }
